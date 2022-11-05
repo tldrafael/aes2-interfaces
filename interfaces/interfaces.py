@@ -1,42 +1,35 @@
+from abc import ABC, abstractmethod
 import numpy as np
+from typing import List, Tuple
 
 
 Frame = np.ndarray((100, 100, 3), float)
 Mask = np.ndarray((100, 100, 1), float)
-Polygon = list[tuple[int, int]]
+Polygon = List[Tuple[int, int]]
 
 
 class Camera:
-    def __init__(self):
-        pass
-
+    @abstractmethod
     def get_frame(self) -> Frame:
         frame = np.zeros_like(Frame)
         return frame
 
 
 class Segmentor:
-    def __init__(self):
-        pass
-
+    @abstractmethod
     def __call__(self, frame) -> Mask:
         seg_mask = np.zeros_like(Mask)
         return seg_mask
 
 
 class OccupancyGrid:
-    def __init__(self):
-        pass
-
+    @abstractmethod
     def __call__(self, seg_mask: Mask) -> Frame:
-        og_frame = np.zeros_like(Frame)
-        return og_frame
+        pass
 
 
 class PolygonPath:
-    def __init__(self):
-        pass
-
+    @abstractmethod
     def __call__(self, og_frame: Mask) -> Polygon:
         polygon_points = [(0, 0), (1, 2), (2, 3)]
         return polygon_points
