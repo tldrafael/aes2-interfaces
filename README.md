@@ -10,7 +10,7 @@ Maybe you have to export the Vulkan environment variable if you get a X11 error.
 export VK_ICD_FILENAMES="/usr/share/vulkan/icd.d/nvidia_icd.json"
 ```
 
-Start server.
+Start the server.
 
 ```
 /opt/carla-simulator/CarlaUE4.sh  -quality-level=Low
@@ -18,14 +18,16 @@ Start server.
 
 Instantiate Town02 on the CARLA server and generate trafic. Go to `/opt/carla-simulator/PythonAPI/`
 ``` 
+cd /opt/carla-simulator/PythonAPI/
+
 python util/config.py --map Town02
 
 python examples/generate_traffic.py
 ```
 
-Now, in the directory one-top level of this repo, run it as module.
+Now, in the directory level of this repo, run it as module.
 ```
-python -m aes2_interfaces.carla.main
+python -m aes2.carla.main
 ```
 
 You'll see a window like below:
