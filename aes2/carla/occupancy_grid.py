@@ -49,3 +49,6 @@ class OccupancyGrid(InterfaceOccupancyGrid):
         z_pixels_new = int(round(self.Z_length / self.z_meter_per_pixel))
         im_og = cv2.resize(im_og, (z_pixels_new, x_pixels_new), interpolation=cv2.INTER_NEAREST)
         return im_og
+
+    def __call__(self, im_seg):
+        return self.get_OG_meters(im_seg)

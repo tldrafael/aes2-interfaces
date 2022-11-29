@@ -16,7 +16,7 @@ class Camera:
 
 class Segmentor:
     @abstractmethod
-    def __call__(self, frame) -> Mask:
+    def __call__(self, frame: Frame) -> Mask:
         pass
 
 

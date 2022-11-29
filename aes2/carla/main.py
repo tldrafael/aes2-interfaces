@@ -77,7 +77,7 @@ def run(add_vehicles=False):
 
             im = to_rgb_array(image)
             im_seg = to_rgb_array(image_seg)[..., 0]
-            im_og = OG.get_OG_meters(im_seg)
+            im_og = OG(im_seg)
 
             # image.save_to_disk('cache/im_%02d.png' % (i))
             # image_seg.save_to_disk('cache/seg_%02d.png' % (i), carla.ColorConverter.CityScapesPalette)
